@@ -1,0 +1,38 @@
+################################################################################################
+#				SuitAgent升级的更新项目配置
+################################################################################################
+# 例如
+#
+#需要添加的文件 [更新服务器上的文件] : [需要添加的目录路径]
+#file.add :
+#  file : targetDir
+#
+#需要替换的文件 [更新服务器上的文件] : [被替换的文件]
+#file.replace :
+#  updateFile/falcon-agent.jar : lib/falcon-agent*.jar
+#
+#需要修改的properties配置文件
+#conf.properties.modify :
+#  需要删除的key配置 [propertiesFile] : [keyName]
+#  deleteKey :
+#    conf/agent.properties : deleteKeyName
+#  需要修改的key [propertiesFile->key] : [modifyValue]
+#  modifyKey :
+#    conf/agent.properties->agent.thread.maxCount : 300
+#  需要新增的key配置 [propertiesFile] : [newKeyValue]
+#  addKey :
+#    conf/agent.properties : newKzey = newValue
+################################################################################################
+
+file.add :
+
+file.replace :
+  falcon-agent.jar : lib/falcon-agent*.jar
+
+conf.properties.modify :
+  disableKey :
+  modifyKey :
+  addKey :
+    conf/plugin/pingPlugin.properties : "\n# 4.0版本后新增的功能配置：支持指定自定义的上报tag于监控的地址上。\n# 格式：（suffix为可选后缀）\n# address<suffix> = ip[tags]\n# 例如：\n# address = 192.168.46.22[tag1=tag1Value;tag2=tag2Value],192.168.56.110\n# address.1 = 192.168.46.22[tag1=tag1Value;tag2=tag2Value],192.168.56.110"
+    conf/plugin/tcpPlugin.properties : "\n# 4.0版本后新增的功能配置：支持指定自定义的上报tag于监控的地址上。\n# 格式：（suffix为可选后缀）\n# address<suffix> = ip:port[tags]\n# 例如：\n# address = 192.168.46.22:1234[tag1=tag1Value;tag2=tag2Value],www.baidu.com\n# address.1 = 192.168.46.22:1234[tag1=tag1Value;tag2=tag2Value],www.baidu.com"
+    conf/plugin/httpPlugin.properties : "\n# 4.0版本后新增的功能配置：支持指定自定义的上报tag于监控的地址上。\n# 格式：（suffix为可选后缀）\n# address<suffix> = method:protocol:url[tags],method:protocol:url\n# 例如：\n# address = get:https:www.baidu.com[tag1=tag1Value;tag2=tag2Value]\n# address.1 = get:http:www.163.com"
