@@ -27,7 +27,7 @@
 file.add :
 
 file.replace :
-  falcon-agent : falcon/agent/falcon-agent
+  falcon-agent.jar : lib/falcon-agent*.jar
 
 conf.properties.modify :
   disableKey :
