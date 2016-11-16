@@ -1,0 +1,39 @@
+################################################################################################
+#				SuitAgent升级的更新项目配置
+################################################################################################
+# 例如
+#
+#需要添加的文件 [更新服务器上的文件] : [需要添加的目录路径]
+#file.add :
+#  file : targetDir
+#
+#需要替换的文件 [更新服务器上的文件] : [被替换的文件]
+#file.replace :
+#  updateFile/falcon-agent.jar : lib/falcon-agent*.jar
+#
+#需要修改的properties配置文件
+#conf.properties.modify :
+#  需要删除的key配置 [propertiesFile] : [keyName]
+#  deleteKey :
+#    conf/agent.properties : deleteKeyName
+#  需要修改的key [propertiesFile->key] : [modifyValue]
+#  modifyKey :
+#    conf/agent.properties->agent.thread.maxCount : 300
+#  需要新增的key配置 [propertiesFile] : [newKeyValue]
+#  addKey :
+#    conf/agent.properties : newKzey = newValue
+################################################################################################
+
+file.add :
+
+file.replace :
+  falcon-agent.jar : lib/falcon-agent*.jar
+
+conf.properties.modify :
+  disableKey :
+  modifyKey :
+  addKey :
+    conf/plugin/pingPlugin.properties : "\n# 7.8版本后新增的功能配置：支持【行默认tag】。\n#说明：\n# 【行默认tag】：每一行的第一个地址的tag为该行的 【行默认tag】，若第一个地址没有自定义tag，则该行无【行默认tag】\n# 每一行的tag值规律：ip 形式的：将会打上【行默认tag】；ip[] 形式的，代表该IP无tag，ip[tag=tagValue] 形式的，代表该地址将使用定义的tag，不使用【行默认tag】\n"
+    conf/plugin/tcpPlugin.properties : "\n# 7.8版本后新增的功能配置：支持【行默认tag】。\n#说明：\n# 【行默认tag】：每一行的第一个地址的tag为该行的 【行默认tag】，若第一个地址没有自定义tag，则该行无【行默认tag】\n# 每一行的tag值规律：ip:port 形式的：将会打上【行默认tag】；ip:port[] 形式的，代表该IP无tag，ip:port[tag=tagValue] 形式的，代表该地址将使用定义的tag，不使用【行默认tag】\n"
+    conf/plugin/httpPlugin.properties : "\n# 7.8版本后新增的功能配置：支持【行默认tag】。\n#说明：\n# 【行默认tag】：每一行的第一个地址的tag为该行的 【行默认tag】，若第一个地址没有自定义tag，则该行无【行默认tag】\n# 每一行的tag值规律：method:protocol:url 形式的：将会打上【行默认tag】；method:protocol:url[] 形式的，代表该IP无tag，method:protocol:url[tag=tagValue] 形式的，代表该地址将使用定义的tag，不使用【行默认tag】\n"
+
