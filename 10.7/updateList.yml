@@ -27,6 +27,7 @@
 file.add :
 file.replace :
   falcon-agent.jar : lib/falcon-agent*.jar
+  quartz-2.2.3.jar : lib/quartz-2.2.1.jar
 conf.properties.modify :
   disableKey :
   modifyKey :
