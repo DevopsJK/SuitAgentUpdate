@@ -31,5 +31,6 @@ file.replace :
 conf.properties.modify :
   disableKey :
   modifyKey :
+    conf/quartz.properties->org.quartz.threadPool.threadCount : 30
   addKey :
 
