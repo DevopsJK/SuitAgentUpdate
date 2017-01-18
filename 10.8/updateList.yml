@@ -32,5 +32,6 @@ conf.properties.modify :
   disableKey :
   modifyKey :
     conf/quartz.properties->org.quartz.threadPool.threadCount : 30
+    conf/plugin/tomcatPlugin.properties->jmxServerName : org.apache.catalina.startup.Bootstrap start
   addKey :
 
