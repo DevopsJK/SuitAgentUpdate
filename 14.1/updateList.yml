@@ -26,6 +26,7 @@
 
 file.add :
 file.replace :
+  NTPPlugin.properties : conf/plugin/*NTPPlugin.properties
   agent.sh : bin/agent.sh
   falcon-agent.jar : lib/falcon-agent*.jar
 conf.properties.modify :
