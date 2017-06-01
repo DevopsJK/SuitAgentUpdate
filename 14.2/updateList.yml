@@ -25,10 +25,12 @@
 ################################################################################################
 
 file.add :
+  rabbitMQPlugin.properties : conf/plugin
 file.replace :
   falcon-agent.jar : lib/falcon-agent*.jar
 conf.properties.modify :
   disableKey :
   modifyKey :
   addKey :
+    conf/authorization.properties : "\n\n\n\n\n\n# RabbitMQ插件的监控API配置\n# 【注意】RabbitMQ 的监控需要启用 [Management Plugin](http://www.rabbitmq.com/management.html) ： rabbitmq-plugins enable rabbitmq_management\n# 【配置格式】\n# rabbitmq.api.url = IP:Port:Username:Password\n# 若要监控多个地址，用如下的方式添加配置：\n# rabbitmq.api.url.2 = IP:Port:Username:Password\n# rabbitmq.api.url.3 = IP:Port:Username:Password\n# 配置后，插件会自动启动并使用HTTP的方式连接并获取监控数据\n# 【说明】\n# IP：RabbitMQ的机器IP地址\n# Port：RabbitMQ的Http API接口服务端口号\n# Username：连接的用户名\n# Password：连接用户的用户密码\n# \n# 【例如】\n# rabbitmq.api.url = 127.0.0.1:15672:guest:guest\n\n"
 
