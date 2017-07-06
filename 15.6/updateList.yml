@@ -27,6 +27,7 @@
 file.add :
 file.replace :
   falcon-agent.jar : lib/falcon-agent*.jar
+  kafkaPlugin.properties : conf/plugin/kafkaPlugin.properties
 conf.properties.modify :
   disableKey :
   modifyKey :
