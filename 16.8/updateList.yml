@@ -27,6 +27,7 @@
 file.add :
 file.replace :
   falcon-agent.jar : lib/falcon-agent*.jar
+  dockerPlugin.properties : conf/plugin/dockerPlugin.properties
 conf.properties.modify :
   disableKey :
   modifyKey :
