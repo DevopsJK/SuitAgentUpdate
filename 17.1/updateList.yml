@@ -27,6 +27,7 @@
 file.add :
 file.replace :
   falcon-agent.jar : lib/falcon-agent*.jar
+  scriptPlugin.properties : conf/plugin/scriptPlugin.properties
 conf.properties.modify :
   disableKey :
   modifyKey :
