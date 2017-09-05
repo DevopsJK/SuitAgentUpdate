@@ -1,0 +1,79 @@
+################################################################################################
+#				SuitAgent升级的更新项目配置
+################################################################################################
+# 例如
+#
+#需要添加的文件 [更新服务器上的文件] : [需要添加的目录路径]
+#file.add :
+#  file : targetDir
+#
+#需要替换的文件 [更新服务器上的文件] : [被替换的文件]
+#file.replace :
+#  updateFile/falcon-agent.jar : lib/falcon-agent*.jar
+#
+#需要修改的properties配置文件
+#conf.properties.modify :
+#  需要删除的key配置 [propertiesFile] : [keyName]
+#  deleteKey :
+#    conf/agent.properties : deleteKeyName
+#  需要修改的key [propertiesFile->key] : [modifyValue]
+#  modifyKey :
+#    conf/agent.properties->agent.thread.maxCount : 300
+#  需要新增的key配置 [propertiesFile] : [newKeyValue]
+#  addKey :
+#    conf/agent.properties : newKzey = newValue
+################################################################################################
+
+file.add :
+  lib/aopalliance-repackaged-2.4.0-b34.jar : lib
+  lib/asm-5.0.3.jar : lib
+  lib/asm-analysis-5.0.3.jar : lib
+  lib/asm-commons-5.0.3.jar : lib
+  lib/asm-tree-5.0.3.jar : lib
+  lib/asm-util-5.0.3.jar : lib
+  lib/bcpkix-jdk15on-1.52.jar : lib
+  lib/bcprov-jdk15on-1.52.jar : lib
+  lib/commons-codec-1.9.jar : lib
+  lib/commons-logging-1.2.jar : lib
+  lib/docker-client-8.9.0.jar : lib
+  lib/hk2-api-2.4.0-b34.jar : lib
+  lib/hk2-locator-2.4.0-b34.jar : lib
+  lib/hk2-utils-2.4.0-b34.jar : lib
+  lib/httpclient-4.5.jar : lib
+  lib/httpcore-4.4.5.jar : lib
+  lib/jackson-annotations-2.8.0.jar : lib
+  lib/jackson-core-2.8.8.jar : lib
+  lib/jackson-databind-2.8.8.jar : lib
+  lib/jackson-datatype-guava-2.8.8.jar : lib
+  lib/jackson-jaxrs-base-2.8.8.jar : lib
+  lib/jackson-jaxrs-json-provider-2.8.8.jar : lib
+  lib/jackson-module-jaxb-annotations-2.8.8.jar : lib
+  lib/javassist-3.18.1-GA.jar : lib
+  lib/javax.annotation-api-1.2.jar : lib
+  lib/javax.inject-2.4.0-b34.jar : lib
+  lib/javax.ws.rs-api-2.0.1.jar : lib
+  lib/jersey-apache-connector-2.22.2.jar : lib
+  lib/jersey-client-2.22.2.jar : lib
+  lib/jersey-common-2.22.2.jar : lib
+  lib/jersey-entity-filtering-2.22.2.jar : lib
+  lib/jersey-guava-2.22.2.jar : lib
+  lib/jersey-media-json-jackson-2.22.2.jar : lib
+  lib/jffi-1.2.9.jar : lib
+  lib/jffi-1.2.9-native.jar : lib
+  lib/jnr-constants-0.8.7.jar : lib
+  lib/jnr-enxio-0.9.jar : lib
+  lib/jnr-ffi-2.0.3.jar : lib
+  lib/jnr-posix-3.0.12.jar : lib
+  lib/jnr-unixsocket-0.8.jar : lib
+  lib/jnr-x86asm-1.0.2.jar : lib
+  lib/logback-core-1.2.1.jar : lib
+  lib/okhttp-3.8.1.jar : lib
+  lib/okio-1.13.0.jar : lib
+  lib/osgi-resource-locator-1.0.1.jar : lib
+file.replace :
+  falcon-agent.jar : lib/falcon-agent*.jar
+conf.properties.modify :
+  disableKey :
+  modifyKey :
+  addKey :
+
