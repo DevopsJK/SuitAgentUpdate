@@ -25,6 +25,7 @@
 ################################################################################################
 
 file.add :
+  uptimePlugin.properties : conf/plugin
 file.replace :
   falcon-agent.jar : lib/falcon-agent*.jar
 conf.properties.modify :
