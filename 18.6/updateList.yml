@@ -1,0 +1,34 @@
+################################################################################################
+#				SuitAgent升级的更新项目配置
+################################################################################################
+# 例如
+#
+#需要添加的文件 [更新服务器上的文件] : [需要添加的目录路径]
+#file.add :
+#  file : targetDir
+#
+#需要替换的文件 [更新服务器上的文件] : [被替换的文件]
+#file.replace :
+#  updateFile/falcon-agent.jar : lib/falcon-agent*.jar
+#
+#需要修改的properties配置文件
+#conf.properties.modify :
+#  需要删除的key配置 [propertiesFile] : [keyName]
+#  deleteKey :
+#    conf/agent.properties : deleteKeyName
+#  需要修改的key [propertiesFile->key] : [modifyValue]
+#  modifyKey :
+#    conf/agent.properties->agent.thread.maxCount : 300
+#  需要新增的key配置 [propertiesFile] : [newKeyValue]
+#  addKey :
+#    conf/agent.properties : newKzey = newValue
+################################################################################################
+
+file.add :
+file.replace :
+  falcon-agent.jar : lib/falcon-agent*.jar
+conf.properties.modify :
+  disableKey :
+  modifyKey :
+  addKey :
+
