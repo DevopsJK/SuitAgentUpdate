@@ -1,0 +1,35 @@
+################################################################################################
+#				SuitAgent升级的更新项目配置
+################################################################################################
+# 例如
+#
+#需要添加的文件 [更新服务器上的文件] : [需要添加的目录路径]
+#file.add :
+#  file : targetDir
+#
+#需要替换的文件 [更新服务器上的文件] : [被替换的文件]
+#file.replace :
+#  updateFile/falcon-agent.jar : lib/falcon-agent*.jar
+#
+#需要修改的properties配置文件
+#conf.properties.modify :
+#  需要删除的key配置 [propertiesFile] : [keyName]
+#  deleteKey :
+#    conf/agent.properties : deleteKeyName
+#  需要修改的key [propertiesFile->key] : [modifyValue]
+#  modifyKey :
+#    conf/agent.properties->agent.thread.maxCount : 300
+#  需要新增的key配置 [propertiesFile] : [newKeyValue]
+#  addKey :
+#    conf/agent.properties : newKzey = newValue
+################################################################################################
+
+file.add :
+file.replace :
+  falcon-agent.jar : lib/falcon-agent*.jar
+conf.properties.modify :
+  disableKey :
+  modifyKey :
+  addKey :
+    conf/plugin/elasticSearchMetricsConf.yml : "################################################################################################\n#\t\t\t\t\t\t\t自定义聚合指标配置\n# 配置示例说明:如\n# SuitAgentEsAggregator.1:[.符号前面的字符为固定写法，自定义聚合指标配置必须带上，否则被认为是es监控属性。.符号后面为保证配置的key唯一,只要不重复就可以]\n# \tnewMetric:\"\"[聚合计算后新的指标名称]\n# \tvalueScript:\"\"[新指标的聚合计算逻辑，使用JS代码进行编码，必须将新聚合值赋值给newValue变量。其他可计算的变量为已配置的es监控属性指标名称，既metrics名称]\n# \tcounterType:\"\"[数据采集项类型只能配置GAUGE(上传什么样的值，就原封不动的存储)或COUNTER(存储和展现的时候，会被计算为speed，即（当前值-上次值）/时间间隔)]\n# \ttag:\"\"[标签(可选)]\n#\n# 例如：\n# SuitAgentEsAggregator.1:\n# \tnewMetric:\"my-es-aggregator-metric\"\n# \tvalueScript:\"newValue=nodes-stats-index_total+nodes-stats-fsTotal\"\n# \tcounterType:\"GAUGE\"\n# \ttag:\"\"\n################################################################################################\n"
+
