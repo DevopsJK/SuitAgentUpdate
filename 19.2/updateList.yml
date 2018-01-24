@@ -31,3 +31,4 @@ conf.properties.modify :
   disableKey :
   modifyKey :
   addKey :
+    conf/plugin/mongoDBPlugin.properties : "################################################################################################\n#\n若mongoDB需要配置授权访问权限，必须在此配置授权用户的用户名和密码信息\n\n# 注：配置的用户必须有 admin 数据库的 root 权限，不然无法执行db.serverStatus()进行指标采集，如：\n# db.createUser({user:\"mon\",pwd:\"mon123456\",roles:[{\"role\":\"root\",\"db\":\"admin\"}]})\n\n# 授权配置说明：\n\n# 若所有的mongodb实例的授权用户都是一样的，则可以这样配置（配置后，没有指定端口号的实例，均自动使用以下授权配置）：\n# mongodb.auth.user = mon\n# mongodb.auth.pwd = mon123456\n\n# 若有不同端口的授权用户不一样，则可以这样配置（多个端口号直接配置多个，指定不同端口号即可）：\n# mongodb.auth.28017.user = mon1\n# mongodb.auth.28017.pwd = mon1Pwd\n\n# 注：以上两种授权配置可同时存在\n################################################################################################"
