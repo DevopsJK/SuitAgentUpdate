@@ -24,10 +24,5 @@
 #    conf/agent.properties : newKzey = newValue
 ################################################################################################
 
-file.add :
 file.replace :
   falcon-agent.jar : lib/falcon-agent*.jar
-conf.properties.modify :
-  disableKey :
-  modifyKey :
-  addKey :
