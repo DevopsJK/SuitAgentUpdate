@@ -1,0 +1,35 @@
+################################################################################################
+#				SuitAgent升级的更新项目配置
+################################################################################################
+# 例如
+#
+#需要添加的文件 [更新服务器上的文件] : [需要添加的目录路径]
+#file.add :
+#  file : targetDir
+#
+#需要替换的文件 [更新服务器上的文件] : [被替换的文件]
+#file.replace :
+#  updateFile/falcon-agent.jar : lib/falcon-agent*.jar
+#
+#需要修改的properties配置文件
+#conf.properties.modify :
+#  需要删除的key配置 [propertiesFile] : [keyName]
+#  deleteKey :
+#    conf/agent.properties : deleteKeyName
+#  需要修改的key [propertiesFile->key] : [modifyValue]
+#  modifyKey :
+#    conf/agent.properties->agent.thread.maxCount : 300
+#  需要新增的key配置 [propertiesFile] : [newKeyValue]
+#  addKey :
+#    conf/agent.properties : newKzey = newValue
+################################################################################################
+
+file.add :
+file.replace :
+  falcon-agent.jar : lib/falcon-agent*.jar
+conf.properties.modify :
+  disableKey :
+  modifyKey :
+  addKey :
+    conf/plugin/redisPlugin.properties : "############################### 指定Redis客户端（redis-cli）位置 ###################################################\n# 若有需要（程序无法自动获取（系统PATH或本机已运行的redis实例中）客户端执行文件位置时），通过此配置指定Redis客户端执行文件的位置。\n# redis.cli.path = /bin/redis-cli\n\n\n\n############# 远程Redis探测监控,多个值用英文逗号分隔,[tags] 为可选配置，用于指定自定义的上报tag于监控的地址上 ###############\n# 格式：（suffix为可选后缀）\n# address<suffix> = ip:port[tags]\n#\n# 【行默认tag】：每一行的第一个地址的tag为该行的 【行默认tag】，若第一个地址没有自定义tag，则该行无【行默认tag】\n# 每一行的tag值规律：ip:port 形式的：将会打上【行默认tag】；ip:port[] 形式的，代表该IP无tag，ip:port[tag=tagValue] 形式的，代表该地址将使用定义的tag，不使用【行默认tag】\n#\n#\n# 例如(192.168.46.24 将不会打上自定义tag，192.168.46.25 将会打上【行默认tag】):\n\n# address = 192.168.46.22:6379[tag1=tag1Value;tag2=tag2Value],192.168.46.24:6379[],192.168.46.25:6379\n# address.1 = 192.168.46.27:6379[tag1=tag1Value;tag2=tag2Value]\n#\n"
+    conf/plugin/mongoDBPlugin.properties : "############################### 指定mongo客户端（mongo）位置 ###################################################\n# 若有需要（程序无法自动获取（系统PATH或本机已运行的mongod实例中）客户端执行文件位置时），通过此配置指定mongo客户端执行文件的位置。\n# mongo.path = /bin/mongo\n\n\n############# 远程MongoDB探测监控,多个值用英文逗号分隔,[tags] 为可选配置，用于指定自定义的上报tag于监控的地址上 ###############\n# 格式：（suffix为可选后缀）\n# address<suffix> = ip:port[tags]\n#\n#\n# 【行默认tag】：每一行的第一个地址的tag为该行的 【行默认tag】，若第一个地址没有自定义tag，则该行无【行默认tag】\n# 每一行的tag值规律：ip:port 形式的：将会打上【行默认tag】；ip:port[] 形式的，代表该IP无tag，ip:port[tag=tagValue] 形式的，代表该地址将使用定义的tag，不使用【行默认tag】\n#\n#\n# 例如(192.168.46.24 将不会打上自定义tag，192.168.46.25 将会打上【行默认tag】):\n\n# address = 192.168.46.22:27017[tag1=tag1Value;tag2=tag2Value],192.168.46.24:27017[],192.168.46.25:27017\n# address.1 = 192.168.46.27:27017[tag1=tag1Value;tag2=tag2Value]\n#\n\n\n################################# 远程MongoDB监控的授权配置说明 ##########################################\n# 配置远程的mongodb监控的授权配置方式：\n\n# 注：配置的用户必须有 admin 数据库的 root 权限，不然无法执行db.serverStatus()进行指标采集，如：\n# db.createUser({user:\"mon\",pwd:\"mon123456\",roles:[{\"role\":\"root\",\"db\":\"admin\"}]})\n\n# 若所有的远程mongodb实例的授权用户都是一样的，则可以这样配置（配置后，远程连接的mongoDB没有指定端口号的实例，均自动使用以下授权配置）：\n# mongodb.auth.remote.user = mon\n# mongodb.auth.remote.pwd = mon123456\n\n# 若远程MongoDB有不同端口的授权用户不一样，则可以这样配置（多个端口号直接配置多个，指定不同端口号即可）：\n# mongodb.auth.remote.ip.port.user = mon1\n# mongodb.auth.remote.ip.port.pwd = mon1Pwd\n# 如：\n# mongodb.auth.remote.192.168.46.22.27017.user = mon1\n# mongodb.auth.remote.192.168.46.22.27017.pwd = mon1Pwd\n#"
